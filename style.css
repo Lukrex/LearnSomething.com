@@ -58,7 +58,7 @@ select {
     cursor: pointer;
 }
 .unit {
-    margin: 1.5rem auto;
+    margin: 2rem auto;
     border-radius: 50%;
     height: 3rem;
     width: 3rem;
@@ -68,11 +68,12 @@ select {
 }
 iframe {
     border: solid;
+    border-radius: 0.3rem;
     position: relative;
     width: 12.5rem;
-    height: 5rem;
+    height: 8rem;
     left: -4.88rem;
-    top: -1.13rem;
+    top: -2.625rem;
 }
 #exit {
     position: relative;
@@ -81,7 +82,8 @@ iframe {
     background-color: red;
     left: 6.95rem;
     top: -6.47rem;
-    display: block;
+    border: solid 1px;
+    cursor: pointer;
 }
 .active {
     animation: active 0.5s ease-out;
