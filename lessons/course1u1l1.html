@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LearnSomething.com</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+    * { font-family: 'League Spartan', sans-serif; user-select: none; }
+    html { font-size: 24px; }
+    body { overflow: hidden; margin: 0; padding: 0; }
+    img { pointer-events: none; }
+    header {
+      border-bottom: solid 1px #a1a1a1;
+      grid-template-columns: auto 100% auto;
+      height: 1.38rem;
+    }
+    a {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0.275rem;
+    }
+    #reportP {
+      right: 0;
+      position: absolute;
+      top: 0;
+      width: 1.2rem;
+      height: 1.2rem;
+      margin: 0.275rem;
+      cursor: pointer;
+    }
+    #exit {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 1.5rem;
+      margin: 0.25rem;
+    }
+    #report {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1.25rem;
+      margin: 0.36rem;
+    }
+    #progress {
+      width: 88%; /* make lil responsive */
+      background-color: #a1a1a1;
+      height: 0.75rem;
+      border-radius: 1rem;
+      margin: 0.625rem auto;
+    }
+    #progress #progressBar {
+      height: 100%;
+      width: 0%;
+      border-radius: 1rem;
+      background-color: #60db02;
+      animation: fill-bar 5s infinite;
+    }
+    @keyframes fill-bar {
+      from {width: 3%;}
+      to {width: 100%;}
+    }
+    #check, #next {
+      display: none;
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 4rem;
+      height: 2rem;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+    }
+    #check {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a id="exitA"></a><img id="exit" src="../../images/x-svgrepo-com.svg">
+    <div id="progress">
+      <div id="progressBar"></div>
+    </div>
+    <p onclick="report()" id="reportP"></p><img id="report" src="../../images/comment-svgrepo-com.svg" onclick="report()">
+  </header>
+  <main>
+    
+  </main>
+  <footer>
+    <button id="check" onclick="check()">Check</button>
+    <button id="next" onclick="next()">Next</button>
+  </footer>
+</body>
+</html>
+<script>
+  document.getElementById("exitA").href = "../courses/" + getCourseName(window.location.href);
+
+  function getCourseName(url){
+    return url.split('/').pop().slice(0, -9) + ".html";
+  }
+
+  //report function should show a window with a textarea and a submit button
+  function report() {
+    console.log("reported")
+    var reportWindow = window.open("", "", "width=500,height=500");
+    reportWindow.document.write("<form action='../../report.php' method='post'><textarea name='report' rows='10' cols='50'></textarea><input type='submit' value='Submit'></form>");
+  }
+
+  function check() {
+    document.getElementById("check").style.display = "none";
+    document.getElementById("next").style.display = "block";
+    //check the answer and update progress bar
+  }
+  function next() {
+    document.getElementById("next").style.display = "none";
+    document.getElementById("check").style.display = "block";
+    //change to next page through a bunch of display none divs in main
+  }
+</script>
