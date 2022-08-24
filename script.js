@@ -5,13 +5,13 @@ let exit = document.getElementById("exit"); //iframe
 //for every element with class name "unit"
 for (let unit of units) {
     unit.addEventListener('click', function() {
-        console.log("clicked unit!");
+        
         if (unit.firstElementChild.style.display == "none") {
             unit.firstElementChild.classList.add("active");
             unit.firstElementChild.classList.remove("close");
             unit.firstElementChild.style.display = "initial";
             setTimeout(()=>{ unit.lastElementChild.style.display="block"; }, "500");
-        } else { console.log("uh oh"); }
+        } else {  }
     })
 }
 
@@ -22,7 +22,7 @@ courseSelector.addEventListener("change", function() {
 })
 
 function exitIFrame(exitBtn) {
-    console.log("exit");
+    
     exitBtn.style.display = "none";
     let iframe = exitBtn.parentElement.firstElementChild;
     iframe.classList.remove("active");
